@@ -1,0 +1,29 @@
+#useDynLib(sideChannelAttack)
+importFrom(MASS,ginv) # importation pour la méthode p dans la fichier predict.gaussian.R
+importFrom(minet,build.mim) # importation pour la méthode p dans la fichier predict.gaussian.R
+# infotheo pour minet dans le fichier description
+#require(corpcor)# importation pour le fichier gaussien.default.R
+importFrom(mmap,struct) # importation pour le filter.RegressionTreeFilter
+#require(ade4) # pour le filtre.PCA
+
+export(gaussian,simulator.Simple1, dpa1)
+exportPattern("^filter") 
+exportPattern("^verify") # ,filter.PCA,filter.mRMR,filter.NULL,filter.RegressionTreeFilter,
+S3method(predict, gaussian)
+S3method(gaussian, default)
+S3method(predict, dpa1)
+S3method(dpa1, default)
+
+S3method(predict, filter.PCA)
+S3method(filter.PCA, default)
+S3method(predict, filter.NULL)
+S3method(filter.NULL, default)
+S3method(predict, filter.RegressionTreeFilter)
+S3method(filter.RegressionTreeFilter, default)
+S3method(predict, filter.mRMR)
+S3method(filter.mRMR, default)
+
+S3method(plot, verify.loo)
+S3method(verify.loo, default)
+S3method(plot, verify.ho)
+S3method(verify.ho, default)

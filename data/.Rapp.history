@@ -1,0 +1,13 @@
+load("/Users/user/Documents/ulb/Recherche/Projet/Projet6/sideChannelAttack/data/datav400.rda")
+Yv
+data
+datav
+load("/Users/user/Documents/ulb/Recherche/Projet/Projet6/sideChannelAttack/data/powerC.rda")
+ls(à)
+ls()
+Y
+powerC
+load("/Users/user/Documents/ulb/Recherche/Projet/Projet6/sideChannelAttack/data/powerC.rda")
+load("/Users/user/Documents/ulb/Recherche/Projet/Projet6/sideChannelAttack/data/powerC.rda")
+plot(powerC[1,],type="l")
+plot(powerC[250,],type="l")
