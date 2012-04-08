@@ -1,6 +1,6 @@
 Package: sideChannelAttack
-Version: 1.0-1
-Date: 2011-08-08
+Version: 1.0-2
+Date: 2012-04-8
 Title: Side Channel Attack
 Authors@R: c(person("Liran","Lerman",role =
         c("cre","aut"),email="llerman@ulb.ac.be"),person("Gianluca","Bontempi",role
@@ -11,13 +11,13 @@ Author: Liran Lerman <llerman@ulb.ac.be>, Gianluca Bontempi
         <gbonte@ulb.ac.be>, Olivier Markowitch
         <olivier.markowitch@ulb.ac.be>
 Maintainer: Liran Lerman <llerman@ulb.ac.be>
-Depends: MASS, corpcor, mmap, ade4, minet, infotheo
+Depends: R (>= 2.10), MASS, corpcor, mmap, ade4, minet, infotheo
 Description: This package has many purposes: first, it gives to the
         community an R implementation of each known side channel attack
         and countermeasures as well as data to test it, second it
         allows to implement a side channel attack quickly and easily.
 License: GPL-3
 URL: http://student.ulb.ac.be/~llerman/
-Packaged: 2011-08-08 17:58:16 UTC; user
+Packaged: 2012-04-08 12:14:01 UTC; user
 Repository: CRAN
-Date/Publication: 2011-08-08 18:02:57
+Date/Publication: 2012-04-08 12:32:36

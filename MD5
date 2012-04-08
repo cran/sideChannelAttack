@@ -1,4 +1,4 @@
-46b846963b4291400f988dd3a19c65e8 *DESCRIPTION
+8bcf8b066b023ae5467e0468c79cf1b3 *DESCRIPTION
 170e5374437fa7ecd7b93403ab71d56b *NAMESPACE
 261b0c9cf9080244adedf0a27a1baddc *R/dpa.R
 9464555d83b5f3c72bd9fd15f7a571dd *R/dpa.default.R
@@ -13,7 +13,7 @@ de5e8cae8a317c64e8d8b5028eda27a5 *R/predict.filter.R
 4ec64fc988a18819ede7df11225c6976 *R/simulator.R
 107cd31da2b84dcef166c7b8a4030465 *R/verify.R
 e82a7c85b6cdb2e549d9316ee9d159f7 *R/verify.default.R
-6062916e6a159c56d35690ebe2befcd9 *data/powerC.rda
+9707a662c79eb8f5e55e61795297bf88 *data/powerC.rda
 5e9058f75613d5db9b6af70a844bef20 *man/dpa1.Rd
 520306ee88b698b2f47d23d942d422a7 *man/filter.NULL.Rd
 808c895170dcc61999d6ade1b3dbde73 *man/filter.PCA.Rd
