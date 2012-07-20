@@ -1,9 +1,9 @@
-8bcf8b066b023ae5467e0468c79cf1b3 *DESCRIPTION
+dc5e896bf5757af085ff32d381b6e2e6 *DESCRIPTION
 170e5374437fa7ecd7b93403ab71d56b *NAMESPACE
 261b0c9cf9080244adedf0a27a1baddc *R/dpa.R
 9464555d83b5f3c72bd9fd15f7a571dd *R/dpa.default.R
 5d9517420ffaefce7c50669a7205bdf2 *R/filter.R
-704c853a9dc93d3caf06f8b7a3768f9a *R/filter.default.R
+05a8c6258127d3988dc97bf37917d297 *R/filter.default.R
 cb27218eb20248e38086fa81874fa766 *R/gaussian.R
 bacf3b8fb3be90f20fabb1b390bc8862 *R/gaussian.default.R
 a98401c0846ffb7e50961eebc0465765 *R/plot.verify.R

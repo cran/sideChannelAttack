@@ -74,12 +74,12 @@ function (X, Y, nbreVarX_, ...)
 	n <- dim(X)[2]
 	S <- rep(0,n)
 	Best <- c()
-	TailleS <- 1
+	TailleS <- 0
 	for(i in 1:n) {
 		iIndiceBest <- -1
 		iCoutBest <- -1
 		for(j in which(S == 0)) {
-			jCout <- mim[n+1,j] - sum(mim[j,which(S==1)])/TailleS
+			jCout <- mim[n+1,j] - ifelse(TailleS == 0,0,mean(mim[j,which(S==1)]))
 			if(jCout > iCoutBest){
 				iCoutBest <- jCout
 				iIndiceBest <- j
@@ -88,7 +88,7 @@ function (X, Y, nbreVarX_, ...)
 		Best <- c(Best,iIndiceBest)
 		S[iIndiceBest] <- 1
 		TailleS <- TailleS + 1
-		if(TailleS > nbreVarX_)
+		if(TailleS >= nbreVarX_)
 			break;
 	}
 	res <- list(filter = Best)
