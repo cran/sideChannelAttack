@@ -12,7 +12,7 @@ filter.mRMR(X,Y,nbreVarX_,...)
 }
 \arguments{
   \item{X}{A matrix where each row is a physical measure.}
-  \item{Y}{A binary vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{y}{y} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{x}{x}.
+  \item{Y}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{y}{y} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{x}{x}.
  }
  \item{nbreVarX_}{Number of component to get after the reduction by the mRMR of a physical measure.}
 \item{...}{Currently ignored.}

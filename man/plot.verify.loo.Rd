@@ -30,6 +30,6 @@ traces = traces[newIndice,]
 key = key[newIndice]
 
 #model checking
-attack=verify.loo(model=dpa1,filter=filter.mRMR,X=traces,Y=key,nbreVarX=c(14:15))
+attack=verify.loo(model=dpa1,filter=filter.mRMR,X=traces,Y=key,nbreVarX=c(5))
 plot(attack)
 }

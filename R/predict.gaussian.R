@@ -19,7 +19,7 @@ function (object, newdata, ...)
 	{
 		maximum = -1
 		maximumIndice = -1
-		for (supposonsLaclCle in 1:2) {
+		for (supposonsLaclCle in 1:length(object$mean)) {
 			if(is.matrix(newdata))
 			{
 				proba <- p(newdata[nbreDExemple,], (object$mean)[[supposonsLaclCle]], 

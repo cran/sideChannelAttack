@@ -11,14 +11,14 @@ dpa1(x, y,...)
 }
 \arguments{
   \item{x}{A matrix where each row is a trace.}
-  \item{y}{A binary vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{y}{y} is the key for the \eqn{i^{th}}{i_th} trace in the matrix \eqn{x}{x}.}
+  \item{y}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{y}{y} is the key for the \eqn{i^{th}}{i_th} trace in the matrix \eqn{x}{x}.}
   \item{...}{Currently ignored.}
 }
 \value{
   The \code{dpa1} function returns an object which knowing a trace can be used with the \code{predict} function that estimates the value of the key.
 The value of this function is an object of class \code{dpa1}, which is a list with the following components:
 
-	\item{mean}{two arithmetics means, one for each possible key}
+	\item{mean}{a list of arithmetics means, one for each possible key}
   }
 \details{
   The \code{dpa1} function is an example of DPA. It calculates the average \eqn{X_{i}}{X_i} of traces for each key \eqn{Y_{i}}{Y_i}.

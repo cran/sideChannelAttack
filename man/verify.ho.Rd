@@ -13,9 +13,9 @@ verify.ho(model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX,...)
   \item{model}{A model such as randomForest, gaussian, svm, etc.}
   \item{filter}{A feature selection such as filter.PCA, filter.mRMR, etc.}
   \item{Xlearn}{A matrix where each row is a physical measure for the training set.}
-  \item{Ylearn}{A binary vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Ylearn}{Ylearn} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xlearn}{Xlearn}.}
+  \item{Ylearn}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Ylearn}{Ylearn} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xlearn}{Xlearn}.}
   \item{Xval}{A matrix where each row is a physical measure for the validation set.}
-  \item{Yval}{A binary vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Yval}{Yval} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xval}{Xval}.}
+  \item{Yval}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Yval}{Yval} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xval}{Xval}.}
  \item{nbreVarX}{The number of variables which represents each physical measure after the reduction by the feature selection.}
 \item{...}{Currently ignored.}
 }

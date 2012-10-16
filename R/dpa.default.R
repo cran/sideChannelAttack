@@ -14,11 +14,8 @@ function (x, y, ...)
         return(-1)
     }
     MoyenneDeLa <- list()
-    for (cle in 1:2) {
-        MoyenneDeLa[[cle]] <- matrix(ncol = dim(x)[2], nrow = 2, 
-            data = 0)
-        MoyenneDeLa[[cle]] = apply(as.matrix(x[which(y == (cle - 
-            1)), ], ncol = dim(x)[2]), MARGIN = 2, FUN = mean)
+    for (cle in sort(unique(y))) {
+        MoyenneDeLa[[cle]] = apply(matrix(x[which(y == cle), ], ncol = dim(x)[2]), MARGIN = 2, FUN = mean)
     }
     res = list(mean = MoyenneDeLa)
     class(res) <- "dpa1"
