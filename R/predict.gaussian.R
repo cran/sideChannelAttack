@@ -7,6 +7,19 @@ function (x_, mean_, cov_, detCov_)
     return(exp(-0.5 * (x_ - mean_) %*% ginv(cov_) %*% matrix(c(x_ - 
         mean_), ncol = 1))/sqrt(abs(((2 * pi)^N) * detCov_)))
 }
+keyOfList <-
+function (x_)
+{
+    keys_ = c()
+    n = 1
+    for(i in x_)
+    {
+        if(!is.null(i))
+            keys_ = c(keys_,n)
+        n=n+1
+    }
+    return (keys_)
+}
 predict.gaussian <-
 function (object, newdata, ...) 
 {
@@ -19,7 +32,7 @@ function (object, newdata, ...)
 	{
 		maximum = -1
 		maximumIndice = -1
-		for (supposonsLaclCle in 1:length(object$mean)) {
+		for (supposonsLaclCle in keyOfList(object$mean)) {
 			if(is.matrix(newdata))
 			{
 				proba <- p(newdata[nbreDExemple,], (object$mean)[[supposonsLaclCle]], 

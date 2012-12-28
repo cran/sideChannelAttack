@@ -18,3 +18,8 @@ function (X, Y, nbreVarX_, ...)
 {
     UseMethod("filter.mRMR")
 }
+filter.MAX <-
+function (nbreVarX_, ...) 
+{
+    UseMethod("filter.MAX")
+}

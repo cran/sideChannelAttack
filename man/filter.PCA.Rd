@@ -36,6 +36,7 @@ K. Pearson, (1901), "On Lines and Planes of Closest Fit to Systems of Points in 
 #data collection
 data(powerC)
 traces = powerC[,-301]
+traces = traces[,1:100]
 key = powerC[,301]
 
 #model creation

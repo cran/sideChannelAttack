@@ -7,14 +7,16 @@
   The \code{verify.loo} function allows to estimate the quality of a model (an attack) with a leave-one-out approach.
 }
 \usage{
-verify.loo(model, filter, X,Y, nbreVarX,...)
+verify.loo(model, filter, X, Y, nbreVarX, param.model=list(), param.fs=list(), ...)
 }
 \arguments{
   \item{model}{A model such as randomForest, gaussian, svm, etc.}
   \item{filter}{A feature selection such as filter.PCA, filter.mRMR, etc.}
   \item{X}{A matrix where each row is a physical measure.}
   \item{Y}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{y}{y} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{x}{x}.}
- \item{nbreVarX}{The number of variables which represents each physical measure after the reduction by the feature selection.}
+  \item{nbreVarX}{The number of variables which represents each physical measure after the reduction by the feature selection.}
+  \item{param.model}{A list of parameters to insert into the model.}
+  \item{param.fs}{A list of parameters to insert into the feature selection algorithm.}
 \item{...}{Currently ignored.}
 }
 \value{
@@ -40,7 +42,7 @@ traces = powerC[,-301]
 key = powerC[,301]
 newIndice = c(sample(1:128,15),sample(129:256,15))
 traces = traces[newIndice,]
-key = key[newIndice]
+key = key[newIndice]+1
 
 #model checking
 attack=verify.loo(model=dpa1,filter=filter.mRMR,X=traces,Y=key,nbreVarX=c(5))

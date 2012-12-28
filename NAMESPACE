@@ -4,7 +4,6 @@ importFrom(minet,build.mim) # importation pour la méthode p dans la fichier pred
 # infotheo pour minet dans le fichier description
 #require(corpcor)# importation pour le fichier gaussien.default.R
 importFrom(mmap,struct) # importation pour le filter.RegressionTreeFilter
-#require(ade4) # pour le filtre.PCA
 
 export(gaussian,simulator.Simple1, dpa1)
 exportPattern("^filter") 
@@ -22,6 +21,8 @@ S3method(predict, filter.RegressionTreeFilter)
 S3method(filter.RegressionTreeFilter, default)
 S3method(predict, filter.mRMR)
 S3method(filter.mRMR, default)
+S3method(predict, filter.MAX)
+S3method(filter.MAX, default)
 
 S3method(plot, verify.loo)
 S3method(verify.loo, default)

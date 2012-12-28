@@ -1,5 +1,5 @@
 verify.loo.default <-
-function (model, filter, X, Y, nbreVarX, ...) 
+function (model, filter, X, Y, nbreVarX, param.model=list(), param.fs=list(), ...) 
 {
     if (!is.vector(Y)) {
         stop("'Y' has to be a vector")
@@ -23,8 +23,14 @@ function (model, filter, X, Y, nbreVarX, ...)
         for (b in 1:length(Y)) {
             apprends = matrix(X[-b, ], ncol = dim(X)[2])
             verif = matrix(X[b, ], ncol = dim(X)[2])
-            f = filter(X = apprends, Y = Y[-b], nbreVarX = nombreDeDimension)
-            predicteur = model(x = matrix(predict(f, apprends)[,1: nombreDeDimension],ncol=nombreDeDimension), y = factor(Y[-b]))
+            param.fs[["X"]] = apprends
+            param.fs[["Y"]] = Y[-b]
+            param.fs[["nbreVarX"]] = nombreDeDimension
+            f = do.call(filter, param.fs)
+            param.model[["x"]] = matrix(predict(f, apprends)[,1: nombreDeDimension],ncol=nombreDeDimension)
+            param.model[["y"]] = factor(Y[-b])
+            predicteur = do.call(model, param.model)
+            print(predicteur)
             p <- predict(predicteur, c(predict(f, verif)))
             if (length(unique(Y))==2) {
                 if (as.numeric(levels(p))[p]==0 && Y[b]==0) {
@@ -55,7 +61,7 @@ function (model, filter, X, Y, nbreVarX, ...)
     return(res)
 }
 verify.ho.default <-
-function (model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX, ...) 
+function (model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX, param.model=list(), param.fs=list(), ...) 
 {
     if (!is.vector(Ylearn) || !is.vector(Yval)) {
         stop("'Y' has to be a vector")
@@ -76,8 +82,13 @@ function (model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX, ...)
     nbreVarX_dansV = 0
     for (nombreDeDimension in nbreVarX) {
         nbreVarX_dansV = nbreVarX_dansV + 1
-	f = filter(X = Xlearn, Y = Ylearn, nbreVarX = nombreDeDimension)
-	predicteur = model(x = matrix(predict(f, Xlearn),ncol=nombreDeDimension), y = factor(Ylearn))
+        param.fs[["X"]] = Xlearn
+        param.fs[["Y"]] = Ylearn
+        param.fs[["nbreVarX"]] = nombreDeDimension
+        f = do.call(filter, param.fs)
+        param.model[["x"]] = matrix(predict(f, Xlearn),ncol=nombreDeDimension)
+        param.model[["y"]] = factor(Ylearn)
+        predicteur = do.call(model, param.model)
 	p <- predict(predicteur, matrix(predict(f, Xval),ncol=nombreDeDimension))
 	p <- as.numeric(levels(p))[p]
 	if (length(unique(Ylearn))==2) {
@@ -96,7 +107,7 @@ function (model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX, ...)
     return(res)
 }
 verify.cv.default <-
-function (model, filter, X, Y, nbreVarX, k, ...) 
+function (model, filter, X, Y, nbreVarX, k, param.model=list(), param.fs=list(), ...) 
 {
     if (!is.vector(Y)) {
         stop("'Y' has to be a vector")
@@ -126,7 +137,7 @@ function (model, filter, X, Y, nbreVarX, k, ...)
         verifX = matrix(X[c(divK[b]:(divK[b+1]-1)), ], ncol = dim(X)[2])
         apprendsY = Y[-c(divK[b]:(divK[b+1]-1)) ]
         verifY = Y[c(divK[b]:(divK[b+1]-1)) ]
-        res = verify.ho(model=model, filter=filter, Xlearn=apprendsX, Ylearn=apprendsY, Xval=verifX, Yval=verifY, nbreVarX=nbreVarX)
+        res = verify.ho(model=model, filter=filter, Xlearn=apprendsX, Ylearn=apprendsY, Xval=verifX, Yval=verifY, nbreVarX=nbreVarX, param.model, param.fs)
         TP = TP + res$TP
         TN = TN + res$TN
         FN = FN + res$FN
@@ -136,7 +147,7 @@ function (model, filter, X, Y, nbreVarX, k, ...)
     verifX = matrix(X[c(divK[length(divK)]:(dim(X)[1])), ], ncol = dim(X)[2])
     apprendsY = Y[-c(divK[length(divK)]:(dim(X)[1])) ]
     verifY = Y[c(divK[length(divK)]:(dim(X)[1])) ]
-    res = verify.ho(model=model, filter=filter, Xlearn=apprendsX, Ylearn=apprendsY, Xval=verifX, Yval=verifY, nbreVarX=nbreVarX)
+    res = verify.ho(model=model, filter=filter, Xlearn=apprendsX, Ylearn=apprendsY, Xval=verifX, Yval=verifY, nbreVarX=nbreVarX, param.model, param.fs)
     TP = TP + res$TP
     TN = TN + res$TN
     FN = FN + res$FN

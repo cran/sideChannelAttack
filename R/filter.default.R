@@ -26,7 +26,7 @@ function (X, nbreVarX_, ...)
         stop("the number of variable to take from 'X' has to be positive")
         return(-1)
     }
-    res = ade4::dudi.pca(X, scannf = FALSE, nf = nbreVarX_)
+    res = princomp(x=X)
     res2 = list(mod = res, nbreVarX = nbreVarX_)
     class(res2) <- "filter.PCA"
     return(res2)
@@ -93,5 +93,13 @@ function (X, Y, nbreVarX_, ...)
 	}
 	res <- list(filter = Best)
     class(res) <- "filter.mRMR"
+    return(res)
+}
+
+filter.MAX.default <-
+function (nbreVarX_,...) 
+{
+    res = list(nbreVarX = nbreVarX_)
+    class(res) <- "filter.MAX"
     return(res)
 }

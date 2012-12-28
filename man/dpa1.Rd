@@ -33,7 +33,7 @@ P. C. Kocher & J. Jaffe & B. Jun, (1999), "Differential Power Analysis: Leaking 
 #data collection
 data(powerC)
 traces = powerC[,-301]
-key = powerC[,301]
+key = powerC[,301]+1
 
 #model creation
 attack=dpa1(traces[-1,],factor(key[-1]))

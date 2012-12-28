@@ -7,7 +7,7 @@
   The \code{verify.ho} function allows to estimate the quality of a model (an attack) with a hold-out approach.
 }
 \usage{
-verify.ho(model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX,...)
+verify.ho(model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX, param.model=list(), param.fs=list(), ...)
 }
 \arguments{
   \item{model}{A model such as randomForest, gaussian, svm, etc.}
@@ -16,8 +16,10 @@ verify.ho(model, filter, Xlearn, Ylearn, Xval, Yval, nbreVarX,...)
   \item{Ylearn}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Ylearn}{Ylearn} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xlearn}{Xlearn}.}
   \item{Xval}{A matrix where each row is a physical measure for the validation set.}
   \item{Yval}{A vector where the \eqn{i^{th}}{i_th} element of the vector \eqn{Yval}{Yval} is the key for the \eqn{i^{th}}{i_th} physical measure in the matrix \eqn{Xval}{Xval}.}
- \item{nbreVarX}{The number of variables which represents each physical measure after the reduction by the feature selection.}
-\item{...}{Currently ignored.}
+  \item{nbreVarX}{The number of variables which represents each physical measure after the reduction by the feature selection.}
+  \item{param.model}{A list of parameters to insert into the model.}
+  \item{param.fs}{A list of parameters to insert into the feature selection algorithm.}
+  \item{...}{Currently ignored.}
 }
 \value{
   The \code{verify.ho} function returns an object which can be used with the \code{plot} function to plot the quality of the model.
@@ -42,7 +44,7 @@ traces = powerC[,-301]
 key = powerC[,301]
 newIndice = sample(1:256)
 traces = traces[newIndice,]
-key = key[newIndice]
+key = key[newIndice]+1
 
 #model checking
 attack=verify.ho(model=gaussian,filter=filter.mRMR,Xlearn=traces[1:128,],Ylearn=key[1:128],Xval=traces[128:256,],Yval=key[128:256],nbreVarX=c(1:15))
