@@ -69,8 +69,7 @@ function (X, Y, nbreVarX_, ...)
         stop("the number of output has to be the same as the number of input")
         return(-1)
     }
-	tabllInp = cbind(X , matrix(Y,ncol=1) )
-	mim <- build.mim(tabllInp)
+	mim <- mutinformation(cbind(discretize(X),Y))
 	n <- dim(X)[2]
 	S <- rep(0,n)
 	Best <- c()
@@ -95,6 +94,7 @@ function (X, Y, nbreVarX_, ...)
     class(res) <- "filter.mRMR"
     return(res)
 }
+
 
 filter.MAX.default <-
 function (nbreVarX_,...) 

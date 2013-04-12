@@ -39,12 +39,13 @@ verify.cv(model, filter, X,Y, nbreVarX, k, param.model=list(), param.fs=list(), 
 #data collection
 data(powerC)
 traces = powerC[,-301]
+traces = traces[,1:10]
 key = powerC[,301]
 newIndice = c(sample(1:128,15),sample(129:256,15))
 traces = traces[newIndice,]
 key = key[newIndice]+1
 
 #model checking
-attack=verify.cv(model=dpa1,filter=filter.mRMR,X=traces,Y=key,nbreVarX=c(14:15),k=2)
+attack=verify.cv(model=dpa1,filter=filter.PCA,X=traces,Y=key,nbreVarX=c(2:4),k=2)
 plot(attack)
 }

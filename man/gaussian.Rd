@@ -37,10 +37,11 @@ S. Chari & J. R. Rao & P. Rohatgi, (2002), "Template Attacks" , in CHES, volume 
 #data collection
 data(powerC)
 traces = powerC[,-301]
+traces = traces[,1:100]
 key = powerC[,301]+1
 
 #feature selection
-filter = filter.mRMR(traces,key,14)
+filter = filter.PCA(X=traces,nbreVarX_=2)
 traces = predict(filter,traces)
 
 #model creation

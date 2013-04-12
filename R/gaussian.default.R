@@ -23,7 +23,6 @@ function (x, y, ...)
     MoyenneDeLa <- list()
     detCov <- list()
     for (cle in sort(unique(as.numeric(levels(y))[y]))) {
-	cat(cle,"\n")
         CovarianceDuBruitDeLa[[cle]] <- matrix(ncol = dim(X_)[2], 
             nrow = dim(X_)[2], data = 0)
         MoyenneDeLa[[cle]] <- matrix(ncol = dim(X_)[2], nrow = 2, 

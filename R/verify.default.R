@@ -30,7 +30,6 @@ function (model, filter, X, Y, nbreVarX, param.model=list(), param.fs=list(), ..
             param.model[["x"]] = matrix(predict(f, apprends)[,1: nombreDeDimension],ncol=nombreDeDimension)
             param.model[["y"]] = factor(Y[-b])
             predicteur = do.call(model, param.model)
-            print(predicteur)
             p <- predict(predicteur, c(predict(f, verif)))
             if (length(unique(Y))==2) {
                 if (as.numeric(levels(p))[p]==0 && Y[b]==0) {
